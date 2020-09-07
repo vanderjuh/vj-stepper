@@ -2,6 +2,8 @@
 
 This project is a custom component from Angular Material Stepper using the CdkStepper base to simplify the way to customize the stepper by the developer and to be possible handle and customize a continuous line of progress through the steps.
 
+![Custom Stepper](https://github.com/vanderjuh/vj-stepper/blob/master/src/assets/vj-stepper-example.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
