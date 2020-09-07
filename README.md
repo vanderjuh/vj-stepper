@@ -1,6 +1,6 @@
 # VjStepper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+This project is a custom component from Angular Material Stepper using the CdkStepper base to simplify the way to customize the stepper by the developer and to be possible handle and customize a continuous line of progress through the steps.
 
 ## Development server
 
