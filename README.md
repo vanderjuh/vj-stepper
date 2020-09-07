@@ -1,6 +1,6 @@
 # VjStepper
 
-This project is a custom component from Angular Material Stepper using the CdkStepper base to simplify the way to customize the stepper by the developer and to be possible handle and customize a continuous line of progress through the steps.
+This project is a custom component from Angular Material Stepper using the CdkStepper base to simplify the way to customize the stepper by the developer and to be possible to handle and customize a continuous line of progress through the steps.
 
 ![Custom Stepper](https://github.com/vanderjuh/vj-stepper/blob/master/src/assets/vj-stepper-example.png)
 
