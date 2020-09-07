@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-@import '../../styles.scss';
+@import "~@angular/material/theming";
+@import "../../styles.scss";
 
 .vj-stepper {
   min-width: 960px;
@@ -24,7 +24,7 @@
       align-items: center;
       justify-content: center;
       background-color: map-get($vj-stepper-primary, 50);
-      color: map-get($vj-stepper-primary, 500)
+      color: map-get($vj-stepper-primary, 500);
     }
     .vj-step {
       min-width: 100px;
@@ -115,7 +115,11 @@
   .vj-step-navigation-bar {
     .vj-step:nth-child(#{$index}) {
       &:after {
-        background-image: linear-gradient(to right, map-get($vj-stepper-accent, 500), map-get($vj-stepper-primary, 500)) !important;
+        background-image: linear-gradient(
+          to right,
+          map-get($vj-stepper-accent, 500),
+          map-get($vj-stepper-primary, 500)
+        ) !important;
       }
     }
   }
