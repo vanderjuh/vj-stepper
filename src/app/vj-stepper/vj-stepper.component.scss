@@ -1,0 +1,171 @@
+@import '~@angular/material/theming';
+@import '../../styles.scss';
+
+.vj-stepper {
+  min-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .vj-step-navigation-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: auto;
+    padding: 1em;
+    .vj-step-nav-button {
+      width: 30px;
+      min-height: 80px;
+      border: 0;
+      color: inherit;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: map-get($vj-stepper-primary, 50);
+      color: map-get($vj-stepper-primary, 500)
+    }
+    .vj-step {
+      min-width: 100px;
+      border: 0;
+      padding: 10px;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: map-get($vj-stepper-primary, 500);
+      cursor: pointer;
+    }
+    .vj-step:focus,
+    .vj-step:focus {
+      outline: none;
+    }
+    .vj-step:before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: map-get($vj-stepper-primary, 500);
+      right: 35px;
+      top: 16px;
+      position: relative;
+    }
+    .vj-step:after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: map-get($vj-stepper-primary, 500);
+      right: -35px;
+      top: -42px;
+      position: relative;
+    }
+    .vj-step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: solid 2px map-get($vj-stepper-primary, 500);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5em;
+      z-index: 1;
+      background-color: white;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .vj-actived-step > .vj-step-number {
+      background-color: map-get($vj-stepper-accent, 500);
+      border-color: map-get($vj-stepper-accent, 500);
+      color: white;
+    }
+    .vj-actived-step > .vj-step-label {
+      color: map-get($vj-stepper-accent, 500);
+      font-weight: 600;
+    }
+    .vj-completed-step > .vj-step-number {
+      background-color: map-get($vj-stepper-accent, 500);
+      border-color: map-get($vj-stepper-accent, 500);
+      color: white;
+    }
+    .vj-completed-step > .vj-step-label {
+      color: map-get($vj-stepper-accent, 500);
+      font-weight: 600;
+    }
+  }
+  .vj-step-content {
+    width: 100%;
+  }
+}
+
+@mixin styleStepLine($index) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      &:before {
+        background-color: map-get($vj-stepper-accent, 500) !important;
+      }
+      &:after {
+        background-color: map-get($vj-stepper-accent, 500) !important;
+      }
+    }
+  }
+}
+@mixin styleAfterStepLineGradient($index) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      &:after {
+        background-image: linear-gradient(to right, map-get($vj-stepper-accent, 500), map-get($vj-stepper-primary, 500)) !important;
+      }
+    }
+  }
+}
+
+.step-2-done {
+  @include styleStepLine(2);
+  @include styleAfterStepLineGradient(2);
+}
+.step-3-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleAfterStepLineGradient(3);
+}
+.step-4-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleStepLine(4);
+  @include styleAfterStepLineGradient(4);
+}
+.step-5-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleStepLine(4);
+  @include styleStepLine(5);
+  @include styleAfterStepLineGradient(5);
+}
+.step-6-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleStepLine(4);
+  @include styleStepLine(5);
+  @include styleStepLine(6);
+  @include styleAfterStepLineGradient(6);
+}
+.step-7-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleStepLine(4);
+  @include styleStepLine(5);
+  @include styleStepLine(6);
+  @include styleStepLine(7);
+  @include styleAfterStepLineGradient(7);
+}
+.step-8-done {
+  @include styleStepLine(2);
+  @include styleStepLine(3);
+  @include styleStepLine(4);
+  @include styleStepLine(5);
+  @include styleStepLine(6);
+  @include styleStepLine(7);
+  @include styleStepLine(8);
+}
