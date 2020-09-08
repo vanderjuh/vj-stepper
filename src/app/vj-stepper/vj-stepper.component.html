@@ -1,18 +1,12 @@
-<section class="{{'vj-stepper '+'step-'+(selectedIndex+2)+'-done'}}">
+<section class="{{'vj-stepper '+'step-'+(selectedIndex+1)+'-done'}}">
   <header class="vj-step-navigation-bar">
-    <button matRipple class="vj-step-nav-button" cdkStepperPrevious>
-      <mat-icon>chevron_left</mat-icon>
-    </button>
     <button matRipple class="vj-step" *ngFor="let step of steps; let i = index"
       [ngClass]="{ 'vj-actived-step': selectedIndex === i, 'vj-completed-step': step.completed }" (click)="onClick(i)">
+      <div class="vj-step-label">{{ step.label }}</div>
       <div *ngIf="!step.completed" class="vj-step-number">{{ i + 1 }}</div>
       <div *ngIf="step.completed" class="vj-step-number">
         <mat-icon *ngIf="step.completed">check</mat-icon>
       </div>
-      <div class="vj-step-label">{{ step.label }}</div>
-    </button>
-    <button matRipple class="vj-step-nav-button" cdkStepperNext>
-      <mat-icon>chevron_right</mat-icon>
     </button>
   </header>
   <div class="vj-step-content" [style.display]="selected ? 'block' : 'none'">

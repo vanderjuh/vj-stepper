@@ -1,6 +1,55 @@
 @import "~@angular/material/theming";
 @import "../../styles.scss";
 
+@mixin styleStepLine($index, $before: true, $after: true) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      @if $before {
+        &:before {
+          background-color: map-get($vj-stepper-accent, 500) !important;
+        }
+      }
+      @if $after {
+        &:after {
+          background-color: map-get($vj-stepper-accent, 500) !important;
+        }
+      }
+    }
+  }
+}
+@mixin styleAfterStepLineGradient($index) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      &:after {
+        background-image: linear-gradient(
+          to right,
+          map-get($vj-stepper-accent, 500),
+          map-get($vj-stepper-primary, 500)
+        ) !important;
+      }
+    }
+  }
+}
+@mixin styleRemoveBeforeStepLine($index) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      &:before {
+        background-color: unset !important;
+      }
+    }
+  }
+}
+
+@mixin styleRemoveAfterStepLine($index) {
+  .vj-step-navigation-bar {
+    .vj-step:nth-child(#{$index}) {
+      &:after {
+        background-color: unset !important;
+      }
+    }
+  }
+}
+
 .vj-stepper {
   min-width: 960px;
   display: flex;
@@ -48,7 +97,7 @@
       height: 2px;
       background-color: map-get($vj-stepper-primary, 500);
       right: 35px;
-      top: 16px;
+      top: 39px;
       position: relative;
     }
     .vj-step:after {
@@ -57,7 +106,7 @@
       height: 2px;
       background-color: map-get($vj-stepper-primary, 500);
       right: -35px;
-      top: -42px;
+      top: -25px;
       position: relative;
     }
     .vj-step-number {
@@ -74,6 +123,9 @@
       background-color: white;
       font-weight: 600;
       transition: all 0.3s;
+    }
+    .vj-step-label {
+      margin-bottom: 0.5em;
     }
     .vj-actived-step > .vj-step-number {
       background-color: map-get($vj-stepper-accent, 500);
@@ -97,50 +149,34 @@
   .vj-step-content {
     width: 100%;
   }
+  @include styleRemoveBeforeStepLine(1);
+  @include styleRemoveAfterStepLine(7);
 }
 
-@mixin styleStepLine($index) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
-      &:before {
-        background-color: map-get($vj-stepper-accent, 500) !important;
-      }
-      &:after {
-        background-color: map-get($vj-stepper-accent, 500) !important;
-      }
-    }
-  }
+.step-1-done {
+  @include styleStepLine(1, false, true);
+  @include styleAfterStepLineGradient(1);
 }
-@mixin styleAfterStepLineGradient($index) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
-      &:after {
-        background-image: linear-gradient(
-          to right,
-          map-get($vj-stepper-accent, 500),
-          map-get($vj-stepper-primary, 500)
-        ) !important;
-      }
-    }
-  }
-}
-
 .step-2-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleAfterStepLineGradient(2);
 }
 .step-3-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleStepLine(3);
   @include styleAfterStepLineGradient(3);
 }
 .step-4-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleStepLine(3);
   @include styleStepLine(4);
   @include styleAfterStepLineGradient(4);
 }
 .step-5-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleStepLine(3);
   @include styleStepLine(4);
@@ -148,6 +184,7 @@
   @include styleAfterStepLineGradient(5);
 }
 .step-6-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleStepLine(3);
   @include styleStepLine(4);
@@ -156,20 +193,11 @@
   @include styleAfterStepLineGradient(6);
 }
 .step-7-done {
+  @include styleStepLine(1, false, true);
   @include styleStepLine(2);
   @include styleStepLine(3);
   @include styleStepLine(4);
   @include styleStepLine(5);
   @include styleStepLine(6);
-  @include styleStepLine(7);
-  @include styleAfterStepLineGradient(7);
-}
-.step-8-done {
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleStepLine(4);
-  @include styleStepLine(5);
-  @include styleStepLine(6);
-  @include styleStepLine(7);
-  @include styleStepLine(8);
+  @include styleStepLine(7, true, false);
 }
