@@ -1,7 +1,7 @@
 @import "~@angular/material/theming";
 @import "../../styles.scss";
 
-@mixin styleStepLine($index, $before: true, $after: true) {
+@mixin styleHorizontalStepLine($index, $before: true, $after: true) {
   .vj-step-navigation-bar {
     .vj-step:nth-child(#{$index}) {
       @if $before {
@@ -17,7 +17,7 @@
     }
   }
 }
-@mixin styleAfterStepLineGradient($index) {
+@mixin styleAfterHorizontalStepLineGradient($index) {
   .vj-step-navigation-bar {
     .vj-step:nth-child(#{$index}) {
       &:after {
@@ -30,7 +30,7 @@
     }
   }
 }
-@mixin styleRemoveBeforeStepLine($index) {
+@mixin styleRemoveBeforeHorizontalStepLine($index) {
   .vj-step-navigation-bar {
     .vj-step:nth-child(#{$index}) {
       &:before {
@@ -39,8 +39,7 @@
     }
   }
 }
-
-@mixin styleRemoveAfterStepLine($index) {
+@mixin styleRemoveAfterHorizontalStepLine($index) {
   .vj-step-navigation-bar {
     .vj-step:nth-child(#{$index}) {
       &:after {
@@ -49,8 +48,7 @@
     }
   }
 }
-
-.vj-stepper {
+.vj-stepper-horizontal {
   min-width: 960px;
   display: flex;
   align-items: center;
@@ -149,55 +147,138 @@
   .vj-step-content {
     width: 100%;
   }
-  @include styleRemoveBeforeStepLine(1);
-  @include styleRemoveAfterStepLine(7);
+  @include styleRemoveBeforeHorizontalStepLine(1);
+  @include styleRemoveAfterHorizontalStepLine(7);
 }
 
 .step-1-done {
-  @include styleStepLine(1, false, true);
-  @include styleAfterStepLineGradient(1);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleAfterHorizontalStepLineGradient(1);
 }
 .step-2-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleAfterStepLineGradient(2);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleAfterHorizontalStepLineGradient(2);
 }
 .step-3-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleAfterStepLineGradient(3);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleHorizontalStepLine(3);
+  @include styleAfterHorizontalStepLineGradient(3);
 }
 .step-4-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleStepLine(4);
-  @include styleAfterStepLineGradient(4);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleHorizontalStepLine(3);
+  @include styleHorizontalStepLine(4);
+  @include styleAfterHorizontalStepLineGradient(4);
 }
 .step-5-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleStepLine(4);
-  @include styleStepLine(5);
-  @include styleAfterStepLineGradient(5);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleHorizontalStepLine(3);
+  @include styleHorizontalStepLine(4);
+  @include styleHorizontalStepLine(5);
+  @include styleAfterHorizontalStepLineGradient(5);
 }
 .step-6-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleStepLine(4);
-  @include styleStepLine(5);
-  @include styleStepLine(6);
-  @include styleAfterStepLineGradient(6);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleHorizontalStepLine(3);
+  @include styleHorizontalStepLine(4);
+  @include styleHorizontalStepLine(5);
+  @include styleHorizontalStepLine(6);
+  @include styleAfterHorizontalStepLineGradient(6);
 }
 .step-7-done {
-  @include styleStepLine(1, false, true);
-  @include styleStepLine(2);
-  @include styleStepLine(3);
-  @include styleStepLine(4);
-  @include styleStepLine(5);
-  @include styleStepLine(6);
-  @include styleStepLine(7, true, false);
+  @include styleHorizontalStepLine(1, false, true);
+  @include styleHorizontalStepLine(2);
+  @include styleHorizontalStepLine(3);
+  @include styleHorizontalStepLine(4);
+  @include styleHorizontalStepLine(5);
+  @include styleHorizontalStepLine(6);
+  @include styleHorizontalStepLine(7, true, false);
+}
+
+.vj-stepper-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .step {
+    width: 100%;
+    display: flex;
+    .step-header {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      .left-header {
+        width: auto;
+        display: flex;
+        .step-number {
+          width: 100%;
+          padding: 0 1em;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          button {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            z-index: 1;
+            cursor: pointer;
+            outline: none;
+            border: solid 2px map-get($vj-stepper-primary, 500);
+            color: map-get($vj-stepper-primary, 500);
+            font-weight: 600;
+            transition: all 0.3s;
+            mat-icon {
+              margin-left: -3px;
+            }
+          }
+        }
+        .step-number > .actived-step {
+          background-color: map-get($vj-stepper-accent, 500);
+          border-color: map-get($vj-stepper-accent, 500);
+          color: white;
+        }
+        .step-number > .completed-step {
+          background-color: map-get($vj-stepper-accent, 500);
+          border-color: map-get($vj-stepper-accent, 500);
+          color: white;
+        }
+        .step-number:after {
+          content: "";
+          width: 2px;
+          height: 100%;
+          background-color: map-get($vj-stepper-primary, 500);
+          position: relative;
+          left: -17px;
+        }
+      }
+      .right-header {
+        width: 100%;
+        .step-label {
+          min-height: 40px;
+          padding-top: 0.3em;
+          cursor: pointer;
+        }
+        .actived-step,
+        .completed-step {
+          color: map-get($vj-stepper-accent, 500) !important;
+        }
+      }
+    }
+    .step-content {
+      width: 100%;
+      box-sizing: border-box;
+      max-height: 0;
+      transition: max-height ease-out;
+      overflow: hidden;
+    }
+    .step-opened {
+      max-height: 2000px;
+      transition: max-height 1s ease-in;
+    }
+  }
 }

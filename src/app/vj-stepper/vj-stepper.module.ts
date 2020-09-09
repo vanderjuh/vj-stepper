@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { VjStepperComponent } from './vj-stepper.component';
 
@@ -14,7 +15,8 @@ import { VjStepperComponent } from './vj-stepper.component';
     CommonModule,
     CdkStepperModule,
     MatRippleModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   exports: [
     CdkStepperModule,
