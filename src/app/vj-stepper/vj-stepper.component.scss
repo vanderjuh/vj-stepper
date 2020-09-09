@@ -1,38 +1,41 @@
 @import "~@angular/material/theming";
 @import "../../styles.scss";
 
+/*
+  Horizontal Stepper
+*/
 @mixin styleHorizontalStepLine($index, $before: true, $after: true) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
+  .step-navigation-bar {
+    .step:nth-child(#{$index}) {
       @if $before {
         &:before {
-          background-color: map-get($vj-stepper-accent, 500) !important;
+          background-color: map-get($stepper-accent, 500) !important;
         }
       }
       @if $after {
         &:after {
-          background-color: map-get($vj-stepper-accent, 500) !important;
+          background-color: map-get($stepper-accent, 500) !important;
         }
       }
     }
   }
 }
 @mixin styleAfterHorizontalStepLineGradient($index) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
+  .step-navigation-bar {
+    .step:nth-child(#{$index}) {
       &:after {
         background-image: linear-gradient(
           to right,
-          map-get($vj-stepper-accent, 500),
-          map-get($vj-stepper-primary, 500)
+          map-get($stepper-accent, 500),
+          map-get($stepper-primary, 500)
         ) !important;
       }
     }
   }
 }
 @mixin styleRemoveBeforeHorizontalStepLine($index) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
+  .step-navigation-bar {
+    .step:nth-child(#{$index}) {
       &:before {
         background-color: unset !important;
       }
@@ -40,27 +43,27 @@
   }
 }
 @mixin styleRemoveAfterHorizontalStepLine($index) {
-  .vj-step-navigation-bar {
-    .vj-step:nth-child(#{$index}) {
+  .step-navigation-bar {
+    .step:nth-child(#{$index}) {
       &:after {
         background-color: unset !important;
       }
     }
   }
 }
-.vj-stepper-horizontal {
+.stepper-horizontal {
   min-width: 960px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  .vj-step-navigation-bar {
+  .step-navigation-bar {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: auto;
     padding: 1em;
-    .vj-step-nav-button {
+    .step-nav-button {
       width: 30px;
       min-height: 80px;
       border: 0;
@@ -70,10 +73,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: map-get($vj-stepper-primary, 50);
-      color: map-get($vj-stepper-primary, 500);
+      background-color: map-get($stepper-primary, 50);
+      color: map-get($stepper-primary, 500);
     }
-    .vj-step {
+    .step {
       min-width: 100px;
       border: 0;
       padding: 10px;
@@ -82,36 +85,36 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      color: map-get($vj-stepper-primary, 500);
+      color: map-get($stepper-primary, 500);
       cursor: pointer;
     }
-    .vj-step:focus,
-    .vj-step:focus {
+    .step:focus,
+    .step:focus {
       outline: none;
     }
-    .vj-step:before {
+    .step:before {
       content: "";
       width: 100%;
       height: 2px;
-      background-color: map-get($vj-stepper-primary, 500);
+      background-color: map-get($stepper-primary, 500);
       right: 35px;
       top: 39px;
       position: relative;
     }
-    .vj-step:after {
+    .step:after {
       content: "";
       width: 100%;
       height: 2px;
-      background-color: map-get($vj-stepper-primary, 500);
+      background-color: map-get($stepper-primary, 500);
       right: -35px;
       top: -25px;
       position: relative;
     }
-    .vj-step-number {
+    .step-number {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      border: solid 2px map-get($vj-stepper-primary, 500);
+      border: solid 2px map-get($stepper-primary, 500);
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -122,58 +125,58 @@
       font-weight: 600;
       transition: all 0.3s;
     }
-    .vj-step-label {
+    .step-label {
       margin-bottom: 0.5em;
     }
-    .vj-actived-step > .vj-step-number {
-      background-color: map-get($vj-stepper-accent, 500);
-      border-color: map-get($vj-stepper-accent, 500);
+    .actived-step > .step-number {
+      background-color: map-get($stepper-accent, 500);
+      border-color: map-get($stepper-accent, 500);
       color: white;
     }
-    .vj-actived-step > .vj-step-label {
-      color: map-get($vj-stepper-accent, 500);
+    .actived-step > .step-label {
+      color: map-get($stepper-accent, 500);
       font-weight: 600;
     }
-    .vj-completed-step > .vj-step-number {
-      background-color: map-get($vj-stepper-accent, 500);
-      border-color: map-get($vj-stepper-accent, 500);
+    .completed-step > .step-number {
+      background-color: map-get($stepper-accent, 500);
+      border-color: map-get($stepper-accent, 500);
       color: white;
     }
-    .vj-completed-step > .vj-step-label {
-      color: map-get($vj-stepper-accent, 500);
+    .completed-step > .step-label {
+      color: map-get($stepper-accent, 500);
       font-weight: 600;
     }
   }
-  .vj-step-content {
+  .step-content {
     width: 100%;
   }
   @include styleRemoveBeforeHorizontalStepLine(1);
   @include styleRemoveAfterHorizontalStepLine(7);
 }
 
-.step-1-done {
+.horizontal-step-1-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleAfterHorizontalStepLineGradient(1);
 }
-.step-2-done {
+.horizontal-step-2-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleAfterHorizontalStepLineGradient(2);
 }
-.step-3-done {
+.horizontal-step-3-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleHorizontalStepLine(3);
   @include styleAfterHorizontalStepLineGradient(3);
 }
-.step-4-done {
+.horizontal-step-4-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleHorizontalStepLine(3);
   @include styleHorizontalStepLine(4);
   @include styleAfterHorizontalStepLineGradient(4);
 }
-.step-5-done {
+.horizontal-step-5-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleHorizontalStepLine(3);
@@ -181,7 +184,7 @@
   @include styleHorizontalStepLine(5);
   @include styleAfterHorizontalStepLineGradient(5);
 }
-.step-6-done {
+.horizontal-step-6-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleHorizontalStepLine(3);
@@ -190,7 +193,7 @@
   @include styleHorizontalStepLine(6);
   @include styleAfterHorizontalStepLineGradient(6);
 }
-.step-7-done {
+.horizontal-step-7-done {
   @include styleHorizontalStepLine(1, false, true);
   @include styleHorizontalStepLine(2);
   @include styleHorizontalStepLine(3);
@@ -200,7 +203,20 @@
   @include styleHorizontalStepLine(7, true, false);
 }
 
-.vj-stepper-vertical {
+/*
+  Vertical Stepper
+*/
+@mixin styleVerticalStepLine($index) {
+  .step:nth-child(#{$index}) .step-number:after {
+    background-color: red !important;
+  }
+}
+@mixin styleRemoveAfterVerticalStepLine($index) {
+  .step:nth-child(#{$index}) .step-number:after {
+    background-color: unset !important;
+  }
+}
+.stepper-vertical {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,8 +244,8 @@
             z-index: 1;
             cursor: pointer;
             outline: none;
-            border: solid 2px map-get($vj-stepper-primary, 500);
-            color: map-get($vj-stepper-primary, 500);
+            border: solid 2px map-get($stepper-primary, 500);
+            color: map-get($stepper-primary, 500);
             font-weight: 600;
             transition: all 0.3s;
             mat-icon {
@@ -238,20 +254,20 @@
           }
         }
         .step-number > .actived-step {
-          background-color: map-get($vj-stepper-accent, 500);
-          border-color: map-get($vj-stepper-accent, 500);
+          background-color: map-get($stepper-accent, 500);
+          border-color: map-get($stepper-accent, 500);
           color: white;
         }
         .step-number > .completed-step {
-          background-color: map-get($vj-stepper-accent, 500);
-          border-color: map-get($vj-stepper-accent, 500);
+          background-color: map-get($stepper-accent, 500);
+          border-color: map-get($stepper-accent, 500);
           color: white;
         }
         .step-number:after {
           content: "";
           width: 2px;
           height: 100%;
-          background-color: map-get($vj-stepper-primary, 500);
+          background-color: map-get($stepper-primary, 500);
           position: relative;
           left: -17px;
         }
@@ -265,7 +281,7 @@
         }
         .actived-step,
         .completed-step {
-          color: map-get($vj-stepper-accent, 500) !important;
+          color: map-get($stepper-accent, 500) !important;
         }
       }
     }
@@ -281,4 +297,46 @@
       transition: max-height 1s ease-in;
     }
   }
+  @include styleRemoveAfterVerticalStepLine(7);
+}
+.vertical-step-2-done {
+  @include styleVerticalStepLine(1);
+}
+.vertical-step-3-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+}
+.vertical-step-4-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+  @include styleVerticalStepLine(3);
+}
+.vertical-step-5-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+  @include styleVerticalStepLine(3);
+  @include styleVerticalStepLine(4);
+}
+.vertical-step-6-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+  @include styleVerticalStepLine(3);
+  @include styleVerticalStepLine(4);
+  @include styleVerticalStepLine(5);
+}
+.vertical-step-7-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+  @include styleVerticalStepLine(3);
+  @include styleVerticalStepLine(4);
+  @include styleVerticalStepLine(5);
+  @include styleVerticalStepLine(6);
+}
+.vertical-step-7-done {
+  @include styleVerticalStepLine(1);
+  @include styleVerticalStepLine(2);
+  @include styleVerticalStepLine(3);
+  @include styleVerticalStepLine(4);
+  @include styleVerticalStepLine(5);
+  @include styleVerticalStepLine(6);
 }
